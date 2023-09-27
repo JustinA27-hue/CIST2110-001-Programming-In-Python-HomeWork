@@ -1,33 +1,37 @@
 # HW1.py
-# Author:
+# Author: Justin agosto
 
 # Question 1:
 # Print Hello World like we did in class
-
+print("Hello World")
 # Question 2:
 # Print the following:
 # Your name
-
+print("Justin Agosto")
 # Your age
-
+print("17")
 # Your favorite color
-
+print("purple")
 # Your favorite animal
-
+print("dog")
 # Question 3:
 # Create a variable called "myName" and set it equal to your name
-
+myName= " Justin Agosto"
 # Create a variable called "myAge" and set it equal to your age
-
+myAge= " 17"
 # Create a variable called "myColor" and set it equal to your favorite color
-
+myColor= " pruple"
 # Create a variable called "myAnimal" and set it equal to your favorite animal
-
+myAnimal= " dog"
 # Print the following:
 # Hello, my name is <myName>
+print("Hello my name is" + myName)
 # I am <myAge> years old
+print("I am" + myAge)
 # My favorite color is <myColor>
+print("My favorite color is" + myColor)
 # My favorite animal is <myAnimal>
+print("My favorite animal is" + myAnimal)
 
 
 # Question 4:
