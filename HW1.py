@@ -37,31 +37,31 @@ print("My favorite animal is" + myAnimal)
 # Question 4:
 # Calculate the following and print the result:
 # 2 + 2
-
+print(2 + 2)
 # 3 * 4
-
+print(3 * 4)
 # 5 - 6
-
+print(5 - 6)
 # 8 / 2
-
+print(8 / 2)
 # Question 5:
 # Create a variable called "num1" and set it equal to 2
-
+num1= 2
 # Create a variable called "num2" and set it equal to 3
-
+num2= 3
 # Create a variable called "num3" and set it equal to 4
-
+num3= 4
 # Create a variable called "num4" and set it equal to 5
-
+num4= 5
 # Calculate the following and print the result:
 # num1 + num2
-
+print(num1 + num2)
 # num3 * num4
-
+print(num3 * num4)
 # num4 - num1
-
+print(num4 - num1)
 # num2 / num1
-
+print(num2 / num1)
 # Question 6: Write a program that asks the user for their name and then prints the following:
 
 # Hello, <name>. Please enter three numbers.
