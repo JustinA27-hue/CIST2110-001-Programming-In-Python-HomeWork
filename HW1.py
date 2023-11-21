@@ -63,25 +63,47 @@ print(num4 - num1)
 # num2 / num1
 print(num2 / num1)
 # Question 6: Write a program that asks the user for their name and then prints the following:
-name= input("Enter Name: ")
+name = input("Enter Name: ")
 # Hello, <name>. Please enter three numbers.
-print("Hello" + " "  + name) 
-input ("Please enter three numbers")
-# The program should then ask the user for three numbers (floats) and print the following:
+print("Hello " + name)
 
+# The program should then ask the user for three numbers (floats) and print the following:
+a = int(input("Enter First Number: "))
+b = int(input("Enter Second Number: "))
+c = int(input("Enter Third Number: "))
 
 # 1. The sum of the three numbers is <sum>
+sum = a + b + c
+print("The sum of the three numbers is", sum)
 
 # 2. The product of the three numbers is <product>
+product = a * b * c
+print("The product of the three numbers is", product)
 
-# 3. round the three numbers to the nearest integer and print the sum of the three rounded numbers divided by 3 
-
+# 3. round the three numbers to the nearest integer and print the sum of the three rounded numbers divided by 3
+rounded_sum = round(a) + round(b) + round(c)
+average = rounded_sum / 3
+print("The average of the three numbers is", average)
 # 4. The average of the three numbers is <average>
 
 # Question 7: Ask the user for an input of a symbol (in the example its *)     
 # Print a diamond of the symbol that looks like the following. Include the spaces and the | character. 
 # Hint: the print("symbol", end="") with \t and \n characters will be useful here.
+input_symbol = input("Enter a symbol: ")
+n = 9
+for a1 in range(1, (n+1)//2 + 1): #from row 1 to 5
+    for a2 in range((n+1)//2 - a1):
+        print(" ", end = "")
+    for a3 in range((a1*2)-1):
+        print("*", end = "")
+    print()
 
+for a1 in range((n+1)//2 + 1, n + 1): #from row 6 to 9
+    for a2 in range(a1 - (n+1)//2):
+        print(" ", end = "")
+    for a3 in range((n+1 - a1)*2 - 1):
+        print("*", end = "")
+    print()
 #    *     |
 #   ***    |
 #  *****   |
