@@ -1,5 +1,5 @@
 # Project1.py
-# Author:
+# Author: Justin Agosto
 
 
 # This project is meant to test your ability from everything we have learned so far in class
@@ -34,3 +34,61 @@
 # Ensure that user input is cast and checked appropriately to avoid errors during execution.
 # Error Handling:
 # Implement basic error handling to manage invalid inputs from the user (e.g., an answer other than a, b, c, or d).
+print("Welcome to the quiz game!")
+print("Here are the rules:")
+print("You will be asked a series of questions.")
+print("You will be given 4 options for each question.")
+print("You will type in the letter of the answer you think is correct.")
+print("If you get the answer correct, you will get 1 point.")
+print("If you get the answer incorrect, you will get 0 points.")
+print("Good luck!")
+
+questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["A. Paris", "B. London", "C. Rome", "D. Berlin"],
+        "answer": "A"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["A. Mars", "B. Jupiter", "C. Saturn", "D. Earth"],
+        "answer": "B"
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["A. Leonardo da Vinci", "B. Vincent van Gogh", "C. Pablo Picasso", "D. Claude Monet"],
+        "answer": "A"
+    },
+    {
+        "question": "Who is the current president?",
+        "options": ["A. Joe Biden", "B. Donald Trump", "C. George Washington", "D. Abraham Lincoln"],
+        "answer": "A"
+    },
+    {
+        "question": "What is a 1 cent coin made of?",
+        "options": ["A. Iron", "B. Steel", "C. Copper", "D. Aluminum"],
+        "answer": "C"
+    }
+]
+
+score = 0
+
+
+for question in questions:
+    print(question["question"])
+    for option in question["options"]:
+        print(option)
+
+    user_answer = input("Enter your answer (A, B, C or D): ")
+
+    
+    if user_answer.upper() == question["answer"]:
+        print("Correct!")
+        score += 1
+    else:
+        print("Incorrect!")
+
+    print()  
+
+print("Quiz complete!")
+print("Your score: {}/{}".format(score, len(questions)))
