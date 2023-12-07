@@ -205,8 +205,7 @@ def main():
                 print("Contacts saved to CSV file.")
             print("Goodbye!")
             break
-        else:
-            print("Invalid choice. Please try again.")
+        
 
 
 if __name__ == "__main__":
