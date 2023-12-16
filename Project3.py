@@ -1,3 +1,4 @@
+import csv
 #  ________  ________  ________        ___  _______   ________ _________        ________
 # |\   __  \|\   __  \|\   __  \      |\  \|\  ___ \ |\   ____\\___   ___\     |\_____  \
 # \ \  \|\  \ \  \|\  \ \  \|\  \     \ \  \ \   __/|\ \  \___\|___ \  \_|     \|____|\ /_
@@ -5,7 +6,7 @@
 #   \ \  \___|\ \  \\  \\ \  \\\  \|\  \\_\  \ \  \_|\ \ \  \____   \ \  \          __\_\  \
 #    \ \__\    \ \__\\ _\\ \_______\ \________\ \_______\ \_______\  \ \__\        |\_______\
 #     \|__|     \|__|\|__|\|_______|\|________|\|_______|\|_______|   \|__|        \|_______|
-# Author:
+# Author: justin Agosto
 # CIST2110-001-Project-3 Library Management System (LMS)
 # Project 3 will implement a library management system (LMS) that will allow users to manage books, users, and a library to manage collection of books and users.
 # The LMS will be menu driven and will allow users to add, delete, and update books and users.
@@ -16,6 +17,7 @@
 # VIEW (at the top) -> WORD WRAP
 
 # Import statements:
+
 
 # Project outline and requirements:
 
@@ -101,11 +103,123 @@
 # 6. Did you include docstrings for all classes and methods?
 # 7. Did you include type hints for all methods?
 # 8. Did your pytests for the test_user_return and test_library_find_user work?
-
-
 def main():
-    pass  # Remove this line when you implement this method
+    library = Library()
+class Book:
+    def __init__(self, ISBN, title, author):
+        self.ISBN = ISBN
+        self.title = title
+        self.author = author
+        self.borrowed = False
 
+    def __str__(self):
+        return f"ISBN: {self.ISBN}, Title: {self.title}, Author: {self.author}, Borrowed: {self.borrowed}"
+
+    def checkout(self):
+        self.borrowed = True
+        return f"The book '{self.title}' has been checked out."
+
+    def checkin(self):
+        self.borrowed = False
+        return f"The book '{self.title}' has been checked in."
+
+    def isBorrowed(self):
+        return self.borrowed
+
+
+class User:
+    def __init__(self, name, ID):
+        self.name = name
+        self.ID = ID
+        self.borrowedBooks = []
+
+    def __str__(self):
+        borrowed_books_titles = ", ".join([book.title for book in self.borrowedBooks])
+        return f"Name: {self.name}, ID: {self.ID}, Borrowed Books: {borrowed_books_titles}"
+
+    def borrow_book(self, book):
+        self.borrowedBooks.append(book)
+        book.checkout()
+        return f"The book '{book.title}' has been checked out."
+
+    def return_book(self, book):
+        self.borrowedBooks.remove(book)
+        book.checkin()
+        return f"The book '{book.title}' has been checked in."
+
+
+class Library:
+    def __init__(self):
+        self.books = []
+        self.users = []
+
+    def __str__(self):
+        book_list = [str(book) for book in self.books]
+        user_list = [str(user) for user in self.users]
+        return f"Books: {', '.join(book_list)}, Users: {', '.join(user_list)}"
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def add_user(self, user):
+        self.users.append(user)
+
+    def find_book(self, ISBN):
+        for book in self.books:
+            if book.ISBN == ISBN:
+                return book
+        return None
+
+    def find_user(self, ID):
+        for user in self.users:
+            if user.ID == ID:
+                return user
+        return None
+
+
+    def export_books_to_csv(self, filename):
+        with open(filename, 'w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=["ISBN", "Title", "Author", "Borrowed"])
+            writer.writeheader()
+            for book in self.books:
+                writer.writerow({"ISBN": book.ISBN, "Title": book.title, "Author": book.author, "Borrowed": book.borrowed})
+
+    def export_users_to_csv(self, filename):
+        with open(filename, 'w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=["Name", "ID", "Borrowed Books"])
+            writer.writeheader()
+            for user in self.users:
+                borrowed_books_titles = ", ".join([book.title for book in user.borrowedBooks])
+                writer.writerow({"Name": user.name, "ID": user.ID, "Borrowed Books": borrowed_books_titles})
+    while True:
+        print("Menu:")
+        print("a. Add books")
+        print("b. Add users")
+        print("c. Delete books")
+        print("d. Delete users")
+        print("e. Borrow books")
+        print("f. Return books")
+        print("g. Search books")
+        print("h. Check if book is available")
+        print("i. Search users")
+        print("j. Export books to csv")
+        print("k. Export users to csv")
+        print("z. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "z":
+            break
+        elif choice == "a":
+            
+            pass
+        elif choice == "b":
+            
+            pass
+     
 
 if __name__ == "__main__":
     main()
+
+
+

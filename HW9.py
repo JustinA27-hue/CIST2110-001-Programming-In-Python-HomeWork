@@ -1,5 +1,5 @@
 # HW9.py
-# Author:
+# Author: justin Agosto
 
 # This homework will expand upon the code for Lab11.py. If you did not complete Lab11.py, you should do so before attempting this homework.
 
